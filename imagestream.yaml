@@ -1,0 +1,15 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: mysql
+  generation: 2
+  name: mysql
+spec:
+  dockerImageRepository: 'registry.felix.com/devops/mysql'
+  tags:
+    - from:
+        kind: DockerImage
+        name: 'registry.felix.com/devops/mysql:latest'
+      generation: 2
+      name: 'latest'
