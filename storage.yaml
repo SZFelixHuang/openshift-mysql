@@ -48,20 +48,3 @@ spec:
     requests:
       storage: 5Gi
   storageClassName: glusterfs-storage
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  finalizers:
-    - kubernetes.io/pvc-protection
-  labels:
-    app: mysql-persistent
-    template: mysql-persistent-template
-  name: mysql-files-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
-  storageClassName: glusterfs-storage

@@ -19,9 +19,7 @@ spec:
             - mountPath: /etc/mysql
               name: mysql-config
             - mountPath: /var/log/mysql
-              name: mysql-logs
-            - mountPath: /var/lib/mysql-files
-              name: mysql-files  
+              name: mysql-logs 
           envFrom: 
             - configMapRef:
                 name: mysql-configmaps
@@ -37,10 +35,7 @@ spec:
             claimName: mysql-config-pvc
         - name: mysql-logs
           persistentVolumeClaim:
-            claimName: mysql-logs-pvc
-        - name: mysql-files
-          persistentVolumeClaim:
-            claimName: mysql-files-pvc    
+            claimName: mysql-logs-pvc  
   replicas: 1
   triggers:
     - type: ConfigChange 
@@ -51,7 +46,7 @@ spec:
           - mysql
         from:
           kind: ImageStreamTag
-          name: mysql:latest
+          name: mysql:5.7
   strategy: 
     type: Rolling
   paused: false 

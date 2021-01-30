@@ -10,6 +10,6 @@ spec:
   tags:
     - from:
         kind: DockerImage
-        name: 'registry.felix.com/devops/mysql:latest'
+        name: 'registry.felix.com/devops/mysql:5.7'
       generation: 2
-      name: 'latest'
+      name: '5.7'
