@@ -4,3 +4,6 @@ metadata:
   name: mysql-configmaps
 data:
   MYSQL_ROOT_PASSWORD: admin123
+  MYSQL_USER: admin
+  MYSQL_PASSWORD: admin123
+  MYSQL_DATABASE: test

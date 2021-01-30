@@ -16,6 +16,12 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: mysql-data
+            - mountPath: /etc/mysql
+              name: mysql-config
+            - mountPath: /var/log/mysql
+              name: mysql-logs
+            - mountPath: /var/lib/mysql-files
+              name: mysql-files  
           envFrom: 
             - configMapRef:
                 name: mysql-configmaps
@@ -25,7 +31,16 @@ spec:
       volumes:
         - name: mysql-data
           persistentVolumeClaim:
-            claimName: mysql-pvc
+            claimName: mysql-data-pvc
+        - name: mysql-config
+          persistentVolumeClaim:
+            claimName: mysql-config-pvc
+        - name: mysql-logs
+          persistentVolumeClaim:
+            claimName: mysql-logs-pvc
+        - name: mysql-files
+          persistentVolumeClaim:
+            claimName: mysql-files-pvc    
   replicas: 1
   triggers:
     - type: ConfigChange 
