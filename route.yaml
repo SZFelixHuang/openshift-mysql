@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: mysql-route
+  labels:
+    name: mysql-route
+spec:
+  host: mysql.apps.felix.com
+  to:
+    kind: Service
+    name: mysql-svc
+    weight: 100
+  port:
+    targetPort: 3306
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: None
+  wildcardPolicy: None
