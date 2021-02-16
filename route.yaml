@@ -2,6 +2,8 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: mysql-route
+  annotations:
+    haproxy.router.openshift.io/tcp-mode: "true"
   labels:
     name: mysql-route
 spec:
