@@ -26,6 +26,8 @@ spec:
         - name: mysql-data
           persistentVolumeClaim:
             claimName: mysql-data-pvc
+      imagePullSecrets:
+        - name: docker-registry
   replicas: 1
   triggers:
     - type: ConfigChange 
